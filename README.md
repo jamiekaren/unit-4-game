@@ -1,7 +1,7 @@
 # Rutger's Full Stack Bootcamp - Homework Assignment 4
 
 ## Before You Begin
-- [ ] Create a new GitHub repo called unit-4-game, then clone it to your computer.
+- [X] Create a new GitHub repo called unit-4-game, then clone it to your computer.
 - [ ] Inside the unit-4-game folder, create an index.html file.
 - [ ] Still inside the unit-4-game directory, make a folder called assets.
 - [ ] Inside the assets directory, make three additional folders: javascript, css and images.
