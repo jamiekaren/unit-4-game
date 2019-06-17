@@ -4,10 +4,10 @@ body {
     background-size: cover;
   }
 
-  /* .button {     
+  .button {     
     background-color: Transparent;
     background-repeat:no-repeat;
     border: lightcoral;
     cursor:pointer;
     overflow: hidden;        
-} */
+}
