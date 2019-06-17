@@ -10,11 +10,11 @@ let soloBite = new Audio("assets/sounds/solo-bite.mp3");
 
 
 let gameMusic = function () {
-    $(".theme-button").on("click", function () {
-        music.play();
+    $("#theme-button").on("click", function () {
+        themeMusic.play();
     });
-    $(".pause-button").on("click", function () {
-        music.pause();
+    $("#pause-button").on("click", function () {
+        themeMusic.pause();
     });
  
 };
