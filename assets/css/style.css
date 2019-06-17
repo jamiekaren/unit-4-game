@@ -1,4 +1,7 @@
 body {
-    background: fixed;
-    background-image: url(/unit-4-game/assets/images/bb8-desert.jpg);
-}
+    background-image: url(star-wars-house.jpg);
+    padding-top:10px;
+    background-size: cover;
+  }
+
+ 
