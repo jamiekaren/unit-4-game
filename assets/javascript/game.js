@@ -12,6 +12,7 @@ let soloBite = new Audio("assets/sounds/solo-bite.mp3");
 let gameMusic = function () {
     $("#theme-button").on("click", function () {
         themeMusic.play();
+        console.log('Playing theme music');
     });
     $("#pause-button").on("click", function () {
         themeMusic.pause();
