@@ -1,14 +1,13 @@
 console.log("Working...");
 
-//Fight game music
-// let pageAudio = document.createElement("audio");
-// pageAudio.setAttribute("src", "assets\javascript\star-wars-theme.mp3");
+// variables for audio on page
 
 let themeMusic = new Audio("assets/sounds/star-wars-theme.mp3");
-
 let soloBite = new Audio("assets/sounds/solo-bite.mp3");
+let lukeBite = new Audio("");
+let trooperBite = new Audio("");
 
-
+// to play epic fight music with button clicks
 
     $("#theme-button").on("click", function () {
         themeMusic.play();
@@ -20,7 +19,6 @@ let soloBite = new Audio("assets/sounds/solo-bite.mp3");
 
 
 //Create some objects to store characters and their stats
-
 
 let vader = {
     name: 'Darth Vader',
@@ -41,6 +39,9 @@ let solo = {
 
 let skyWalker = {
     name: 'Luke Skywalker',
+    lukeSound: $("#solo").on("click", function () {
+        lukeBite.play()
+        }),
     health: 3000,
     attack: 250,
     counter: 300,
@@ -48,6 +49,9 @@ let skyWalker = {
 
 let stormTrooper = {
     name: 'Stormtrooper',
+    trooperSound: $("#solo").on("click", function () {
+        trooperBite.play()
+        }),
     health: 500,
     attack: 100,
     counter: 50,
