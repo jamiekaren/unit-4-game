@@ -2,6 +2,9 @@ body {
     background-image: url(../../assets/images/mos-eisley.jpg);
     padding-top:10px;
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: fixed;
   }
 
   .button {     
