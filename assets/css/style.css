@@ -8,10 +8,10 @@ body {
   }
 
   #solo { 
-    background-image: url(../../assets/images/han-solo.png);  
     background-color: Transparent;
     background-repeat:no-repeat;
-    background-height: 300px; 
+    background-height: 300px;
+    border-size: 5px;
     border: lightcoral;
     cursor:pointer;
     overflow: hidden;        
