@@ -5,6 +5,7 @@ body {
     background-repeat: no-repeat;
     background-position: right top;
     background-attachment: fixed;
+  
   }
 
   #solo { 
@@ -13,8 +14,15 @@ body {
     background-height: 300px;
     border-size: 5px;
     border: lightcoral;
+    
     cursor:pointer;
     overflow: hidden;        
+}
+
+img {
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 5px;
 }
 
 
