@@ -9,7 +9,7 @@ let themeMusic = new Audio("assets/sounds/star-wars-theme.mp3");
 let soloBite = new Audio("assets/sounds/solo-bite.mp3");
 
 
-let gameMusic = function () {
+
     $("#theme-button").on("click", function () {
         themeMusic.play();
         console.log('Playing theme music');
@@ -17,8 +17,7 @@ let gameMusic = function () {
     $("#pause-button").on("click", function () {
         themeMusic.pause();
     });
- 
-};
+
 
 //Create some objects to store characters and their stats
 
