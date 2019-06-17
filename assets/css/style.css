@@ -1,5 +1,5 @@
 body {
-    background-image: url(assets/images/mos-eisley.jpg);
+    background-image: url(../assets/images/mos-eisley.jpg);
     padding-top:10px;
     background-size: cover;
   }
