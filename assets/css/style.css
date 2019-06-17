@@ -7,9 +7,11 @@ body {
     background-attachment: fixed;
   }
 
-  .button {     
+  #solo { 
+    background-image: url(../../assets/images/han-solo.png);  
     background-color: Transparent;
     background-repeat:no-repeat;
+    background-height: 300px; 
     border: lightcoral;
     cursor:pointer;
     overflow: hidden;        
