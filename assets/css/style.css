@@ -7,7 +7,39 @@ body {
     background-attachment: fixed;
   }
 
-  #solo, #trooper, #R2, #luke { 
+  #solo { 
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    background-height: 300px;
+    border-size: 5px;
+    border: lightcoral;
+    cursor:pointer;
+    overflow: hidden;        
+}
+
+
+ #luke { 
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    background-height: 300px;
+    border-size: 5px;
+    border: lightcoral;
+    cursor:pointer;
+    overflow: hidden;        
+}
+
+ #R2 { 
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    background-height: 300px;
+    border-size: 5px;
+    border: lightcoral;
+    cursor:pointer;
+    overflow: hidden;        
+}
+
+
+   #trooper { 
     background-color: Transparent;
     background-repeat:no-repeat;
     background-height: 300px;
