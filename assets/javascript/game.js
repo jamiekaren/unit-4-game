@@ -4,9 +4,9 @@ console.log("Working...");
 // let pageAudio = document.createElement("audio");
 // pageAudio.setAttribute("src", "assets\javascript\star-wars-theme.mp3");
 
-let music = new Audio("assets\javascript\star-wars-theme.mp3");
+let music = new Audio("assets/javascript/star-wars-theme.mp3");
 
-let soloBite = new Audio ("assets\solo-bite.mp3");
+let soloBite = new Audio ("assets/solo-bite.mp3");
 
 $(".theme-button").on("click", function () {
     music.play();
@@ -20,13 +20,13 @@ $("#solo").on("click", function () {
 });
 
 let gameMusic = {
-    mainMusic = "",
-    soloSound = $("#solo").on("click", function () {
+    mainMusic: "",
+    soloSound: $("#solo").on("click", function () {
         soloBite.play();
     }),
-    vaderSound = "",
-    skyWalkerSound = "",
-    stormTrooperSound = "",
+    vaderSound: "",
+    skyWalkerSound: "",
+    stormTrooperSound: "",
 };
 
 
@@ -35,31 +35,31 @@ let gameMusic = {
 
 
 let vader = {
-    health = 5000,
-    attack = 300,
-    counter = 100,
+    health: 5000,
+    attack: 300,
+    counter: 100,
 };
 
 let solo = {
-    health = 2000,
-    attack = 400,
-    counter = 50,
+    health: 2000,
+    attack: 400,
+    counter: 50,
 };
 
 let skyWalker = {
-    health = 3000,
-    attack = 250,
-    counter = 300,
+    health: 3000,
+    attack: 250,
+    counter: 300,
 };
 
 let stormTrooper = {
-    health = 500,
-    attack = 100,
-    counter = 50,
+    health: 500,
+    attack: 100,
+    counter: 50,
 };
 
 
-//Check all my objects are in fighting condition
+//Check all my characters are in fighting condition
 console.log(vader, solo, skyWalker, stormTrooper);
 
 
@@ -70,11 +70,11 @@ console.log(vader, solo, skyWalker, stormTrooper);
 // };
 
 let gameStart = {
-    selectChar = function (user, enemy) {
+    selectChar: function (user, enemy) {
         $("image").on('click').css("border", "blue").addClass("user-chosen");
         $("image").on('click').css("border", "red").addClass("enemy-chosen");
     },
-    moveChar = function (user, enemy) {
+    moveChar: function (user, enemy) {
         if (selectChar == true)
             $(selectChar).append("#user-character");
 
