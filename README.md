@@ -12,6 +12,8 @@
 - [ ] Set up your repository to deploy to Github Pages.
 - [ ] Push the above changes to GitHub.
 
+![alt text](https://github.com/RutgersCodingBootcamp/RUTSOM201905FSF3/raw/master/Class-Content/04-jquery/02-Homework/Instructions/Images/2-StarWars.jpg "Star Wars Game") 
+
 
 ## Option Two: Star Wars RPG Game (Challenge)
 Star Wars
