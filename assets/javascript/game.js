@@ -59,6 +59,10 @@ let stormTrooper = {
 };
 
 
+//Check all my objects are in fighting condition
+console.log(vader, solo, skyWalker, stormTrooper);
+
+
 //have border of character change color on hover or select
 
 // document.getElementById(solo).onclick = function () {
