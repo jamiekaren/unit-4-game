@@ -21,6 +21,14 @@ $("#pause-button").on("click", function () {
     themeMusic.pause();
 });
 
+// to play sound by for fighting button
+
+$("#attack-button").on("click", function () {
+    fightBite.play();
+    console.log('Playing theme music');
+});
+
+
 //Create some objects to store characters and their stats
 
 let solo = {
@@ -90,6 +98,9 @@ $("#greedo").prepend("Name: " + greedo.name + "<br>" + "Health" + greedo.health)
 
 //move character function
 
+// greedo.health = 0;
+
+// console.log(greedo.health);
 
 function moveChar (char, area) {
     $(char).on("click", function () {
@@ -97,10 +108,16 @@ function moveChar (char, area) {
     });
 };
 
-function gameStart () {
-    
+//when a character dies, they go to character heaven
 
-};
+// function heaven (dead) {
+//     if (dead.health = 10 ) 
+//         $(dead).remove();
+//        else if (dead.health = 0) 
+//        console.log ("You don't look so good");
+
+//     };
+    
 
 moveChar ("#luke", "#user-character");
 moveChar ("#droid", "#user-character");
@@ -109,12 +126,14 @@ moveChar ("#trooper", "#enemy-character");
 moveChar ("#greedo", "#enemy-character");
 
 
-// to play sound by for fighting button
+// OK, now I need to get the moveChar to happen on if statements?? 
 
-$("#attack-button").on("click", function () {
-    fightBite.play();
-    console.log('Playing theme music');
-});
+function gameStart () {
+    
+
+};
+
+
 
 
 //if chosen 1st, move to user-character 
