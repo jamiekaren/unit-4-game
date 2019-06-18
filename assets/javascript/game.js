@@ -33,7 +33,6 @@ $("#attack-button").on("click", function () {
 //Create some objects to store characters and their stats
 
 let solo = {
-    selected: false;
     name: 'Han Solo',
     soloSound: $("#solo").on("click", function () {
         soloBite.play();
@@ -45,7 +44,7 @@ let solo = {
 };
 
 let droid = {
-    selected: false;
+  
     name: 'R2-D2',
     r2Sound: $("#droid").on("click", function () {
         r2Bite.play();
@@ -58,7 +57,7 @@ let droid = {
 
 
 let skyWalker = {
-    selected: false;
+  
     name: 'Luke Skywalker',
     lukeSound: $("#luke").on("click", function () {
         lukeBite.play();
@@ -71,7 +70,7 @@ let skyWalker = {
 
 
 let stormTrooper = {
-    selected: false;
+
     name: 'Stormtrooper',
     trooperSound: $("#trooper").on("click", function () {
         trooperBite.play();
@@ -82,7 +81,7 @@ let stormTrooper = {
 };
 
 let greedo = {
-    selected: false;
+  
     name: 'Greedo',
     greedoSound: $("#greedo").on("click", function () {
         greedoBite.play();
