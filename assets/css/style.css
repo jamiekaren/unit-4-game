@@ -13,6 +13,11 @@ body {
     
   }
 
+   #choose {
+       border: solid;
+       border-color: rgba(169,169,169);
+    }
+
 
   div {
     padding: 5px;
