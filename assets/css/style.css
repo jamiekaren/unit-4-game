@@ -13,6 +13,7 @@ body {
     
   }
 
+
   div {
     padding: 5px;
     margin: 5px;
@@ -26,23 +27,40 @@ body {
     padding: 5px;
   }
 
-  
-  /* #header-area {
-    border-color: red;
-  }
-
-  #theme-music {
-    border-color: orange;
-  }
-
-  #characters-moved {
-      border-color:hotpink;
+  /* #choose {
+    border: solid;
+    color: purple;
   } */
+
+  #enemy-character, #user-character {
+    border: none;
+    border-color: blue;
+  }
+
+  #attack-area {
+    border: none;
+    border-color: hotpink;
+  }
 
   #characters-area {
     text-align: center;
+    border: none;
+    border-color: peachpuff;
+    position: relative;
   }
 
+  #main-wrapper {
+    background-color:rgba(0, 0, 0, 0.3);;
+  }
+
+  #characters-moved {
+    text-align: center;
+    bottom: 0%;
+    position: relative;
+    border: none;
+    border-color: antiquewhite;
+     
+  }
 
   #solo, #luke, #droid, #trooper, #greedo { 
     background-color: Transparent;
@@ -53,5 +71,3 @@ body {
     color: white;
     font-weight: bolder;
   }
-
-

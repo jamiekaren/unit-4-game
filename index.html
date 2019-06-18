@@ -25,6 +25,8 @@
                 <h1>Star Wars Game</h1>
             </div>
 
+            <div class="col"></div>
+
             <div class="col" id="theme-music">
                 <p>
                     <button class="btn btn-dark btn-xs" id="theme-button">
@@ -38,53 +40,64 @@
 
         </div>
 
-        <!-- <div class="row">
-            <div class="col-lg-12"></div>
-        </div> -->
-
 
         <!-- 3rd Row, characters in middle -->
         <div class="row align-items-center" id="characters-area">
 
-            <div class="col justify-content-center">
+            <div class="col">
+                <div class="row" id="choose">
+                    <div class="col">
+                        <h4>Choose Dark or Light...</h4>
+                    </div>
+                </div>
 
-                <button id="solo"><img src="assets/images/han-solo.png" class="solo-image" height="300"></button>
-                <button id="luke"><img src="assets/images/luke-sky02.png" class="luke-image" height="350"></button>
-                <button id="droid"><img src="assets/images/R2-D2.png" height="200"></button>
-                <button id="trooper"><img src="assets/images/storm-trooper.png" height="300"></button>
-                <button id="greedo"><img src="assets/images/Greedo.png" height="300"></button>
+                <div class="row">
+                    <div class="col">
+                        <button id="solo"><img src="assets/images/han-solo.png" class="solo-image"
+                                height="275"></button>
+                    </div>
 
+                    <div class="col">
+                        <button id="luke"><img src="assets/images/luke-sky02.png" class="luke-image"
+                                height="350"></button>
+                    </div>
+
+                    <div class="col">
+                        <button id="droid"><img src="assets/images/R2-D2.png" height="175"></button>
+                    </div>
+
+                    <div class="col">
+                        <button id="greedo"><img src="assets/images/Greedo.png" height="275"></button>
+
+                    </div>
+
+                    <div class="col">
+                        <button id="trooper"><img src="assets/images/storm-trooper.png" height="275"></button>
+                    </div>
+                </div>
             </div>
 
         </div>
 
 
-        <!-- 3rd Row,  Character and Enemy areas and attack button-->
+        <!-- 4th Row,  Character and Enemy areas and attack button-->
         <div class="row align-items-end" id="characters-moved">
 
             <div class="col" id="user-character">
                 <!-- User Character Area  -->
-                <div class="row">
-                    <div class="col">
-                            <h5>Your Character</h5>
-                    </div>
-                    <div class="col">
-                            <button class="btn btn-light btn-xs" id="attack-button">Attack!</button>
-                    </div>
 
-                </div>
+                <h5>Your Character</h5>
 
-                
             </div>
 
-            <div class="col">
-                
+            <div class="col" id="attack-area">
+                <button class="btn btn-light btn-xs" id="attack-button">Attack!</button>
             </div>
 
             <div class="col" id="enemy-character">
                 <!-- Enemy Character Area  -->
 
-                <h5>Enemy</h5>
+                <h5>The Enemy</h5>
 
             </div>
 
