@@ -29,13 +29,11 @@ $("#attack-button").on("click", function () {
 });
 
 
-var s1 = document.getElementById(solo);
 
 //Create some objects to store characters and their stats
 
 let solo = {
     selected: false;
-    id: s1,
     name: 'Han Solo',
     soloSound: $("#solo").on("click", function () {
         soloBite.play();
