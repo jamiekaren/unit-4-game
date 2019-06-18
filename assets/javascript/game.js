@@ -4,9 +4,11 @@ console.log("Working...");
 
 let themeMusic = new Audio("assets/sounds/star-wars-theme.mp3");
 let soloBite = new Audio("assets/sounds/solo-bite.mp3");
-let lukeBite = new Audio("assets/sounds/lukesoundbite01.mp3");
-let trooperBite = new Audio("");
+let lukeBite = new Audio("assets/sounds/luke-bite.mp3");
+let trooperBite = new Audio("assets/sounds/droidsound02.mp3");
 let greedoBite = new Audio("");
+
+console.log (lukeBite);
 
 // to play epic fight music with button clicks
 
@@ -18,15 +20,13 @@ let greedoBite = new Audio("");
         themeMusic.pause();
     });
 
-
-
-
 //Create some objects to store characters and their stats
 
 let solo = {
     name: 'Han Solo',
     soloSound: $("#solo").on("click", function () {
         soloBite.play()
+        console.log('Sound bite works!');
         }),
     health: 2000,
     attack: 100,

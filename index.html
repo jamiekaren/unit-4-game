@@ -20,7 +20,7 @@
     <div id="main-wrapper" class="container-fluid">
 
         <!-- 1st Row, game title and music and maybe wins/losses if time -->
-        <div class="row" id="header-area">
+        <div class="row align-items-start" id="header-area">
             <div class="col" id="title">
                 <h1>Star Wars Game</h1>
             </div>
@@ -38,11 +38,15 @@
 
         </div>
 
+        <!-- <div class="row">
+            <div class="col-lg-12"></div>
+        </div> -->
 
-        <!-- 2nd Row, characters in middle -->
-        <div class="row" id="characters-area">
-            <div class="col-md-1"></div>
-            <div class="col-md-9">
+
+        <!-- 3rd Row, characters in middle -->
+        <div class="row align-items-center" id="characters-area">
+
+            <div class="col justify-content-center">
 
                 <button id="solo"><img src="assets/images/han-solo.png" height="200"></button>
                 <button id="luke"><img src="assets/images/luke-sky02.png" height="250"></button>
@@ -51,18 +55,30 @@
                 <button id="greedo"><img src="assets/images/Greedo.png" height="200"></button>
 
             </div>
-            <div class="col-md-1"></div>
+
         </div>
 
 
-
-
         <!-- 3rd Row,  Character and Enemy areas and attack button-->
-        <div class="row" id="characters-moved">
+        <div class="row align-items-end" id="characters-moved">
+
             <div class="col" id="user-character">
                 <!-- User Character Area  -->
+                <div class="row">
+                    <div class="col">
+                            <h3>Your Character</h3>
+                    </div>
+                    <div class="col">
+                            <button class="btn btn-light btn-xs">Attack!</button>
+                    </div>
 
-                <h3>Your Character</h3> <button class="btn btn-light btn-xs">Attack!</button>
+                </div>
+
+                
+            </div>
+
+            <div class="col">
+                
             </div>
 
             <div class="col" id="enemy-character">
@@ -76,13 +92,7 @@
 
 
 
-
-
     </div>
-
-
-
-
 
 
 
