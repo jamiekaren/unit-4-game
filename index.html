@@ -10,62 +10,73 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
 
-     <!-- JQuery -->
-     <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
 
     <title>Star Wars Game</title>
 </head>
 
 <body>
-    <div id="main-wrapper">
+    <div id="main-wrapper" class="container-fluid">
 
-
-        <div class="row">
-            <div class="col-lrg-12">
+        <!-- 1st Row, game title and music and maybe wins/losses if time -->
+        <div class="row" id="header-area">
+            <div class="col" id="title">
                 <h1>Star Wars Game</h1>
             </div>
+
+            <div class="col" id="theme-music">
+                <p>
+                    <button class="btn btn-dark btn-xs" id="theme-button">
+                        <span class="fa fa-music"></span> Play Epic Fight Music </button>
+
+                    <button class="btn btn-light btn-xs" id="pause-button">
+                        <span class="fa fa-pause"></span> Pause Music</button>
+                </p>
+
+            </div>
+
         </div>
 
 
-        <div class="row">
-            <div class="col-lrg-12"> 
-                
-               
+        <!-- 2nd Row, characters in middle -->
+        <div class="row" id="characters-area">
+            <div class="col-md-1"></div>
+            <div class="col-md-9">
 
-                <div id="musicControls" class="text-center">
-                    
-                <button class="btn btn-dark btn-xs" id="theme-button">
-                  <span class="fa fa-music"></span> Play Epic Fight Music </button>
-                    
-                <button class="btn btn-light btn-xs" id="pause-button">
-                  <span class="fa fa-pause"></span> Pause Music</button>
-                    
-              </div></div>
-            <div class="row">
-                <div class="col-lrg-12">
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-lrg-12">
-                </div>
-            </div>
-            
-            
-  
-            <div class="row">
-            <div class="col-lrg-12">
+                <button id="solo"><img src="assets/images/han-solo.png" height="200"></button>
+                <button id="luke"><img src="assets/images/luke-sky02.png" height="250"></button>
+                <button id="R2"><img src="assets/images/R2-D2.png" height="100"></button>
+                <button id="trooper"><img src="assets/images/storm-trooper.png" height="200"></button>
+                <button id="greedo"><img src="assets/images/Greedo.png" height="200"></button>
 
-                <button id="solo"><img src="assets/images/han-solo.png" height="300"></button>
-                <button id="luke"><img src="assets/images/luke-sky02.png" height="350"></button>
-                <button id="R2"><img src="assets/images/R2-D2.png" height="150"></button>
-                <button id="trooper"><img src="assets/images/storm-trooper.png" height="300"></button>
-                
-                
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+
+
+
+        <!-- 3rd Row,  Character and Enemy areas and attack button-->
+        <div class="row" id="characters-moved">
+            <div class="col" id="user-character">
+                <!-- User Character Area  -->
+
+                <h3>Your Character</h3> <button class="btn btn-light btn-xs">Attack!</button>
             </div>
 
+            <div class="col" id="enemy-character">
+                <!-- Enemy Character Area  -->
+
+                <h3>Enemy</h3>
+
+            </div>
 
         </div>
+
+
+
+
 
     </div>
 

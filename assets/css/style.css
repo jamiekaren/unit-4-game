@@ -7,52 +7,48 @@ body {
     background-attachment: fixed;
   
   }
+  
+  h1, h2, h3 {
+    color: white;
+  }
 
-  #solo { 
+  div {
+    padding: 5px;
+    margin: 5px;
+    border: solid;
+    border-color:white;
+  }
+
+  img {
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 5px;
+  }
+
+  
+  #header-area {
+    border-color: red;
+  }
+
+  #theme-music {
+    border-color: orange;
+  }
+
+  #characters-moved {
+      border-color:hotpink;
+  }
+
+  #characters-area {
+    text-align: center;
+  }
+
+
+  #solo, #luke, #R2, #trooper, #greedo { 
     background-color: Transparent;
     background-repeat:no-repeat;
-    background-height: 300px;
-    border-size: 5px;
-    border: lightcoral;
-    
-    cursor:pointer;
-    overflow: hidden;        
-}
-
-img {
-  border: 1px solid black;
-  border-radius: 3px;
-  padding: 5px;
-}
-
-
- #luke { 
-    background-color: Transparent;
-    background-repeat:no-repeat;
-    background-height: 300px;
-    border-size: 5px;
-    border: lightcoral;
-    cursor:pointer;
-    overflow: hidden;        
-}
-
- #R2 { 
-    background-color: Transparent;
-    background-repeat:no-repeat;
-    background-height: 300px;
-    border-size: 5px;
-    border: lightcoral;
-    cursor:pointer;
-    overflow: hidden;        
-}
-
-
-   #trooper { 
-    background-color: Transparent;
-    background-repeat:no-repeat;
-    background-height: 300px;
-    border-size: 5px;
     border: lightcoral;
     cursor:pointer;
     overflow: hidden;        
-}
+  }
+
+

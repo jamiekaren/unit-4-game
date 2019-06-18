@@ -4,8 +4,9 @@ console.log("Working...");
 
 let themeMusic = new Audio("assets/sounds/star-wars-theme.mp3");
 let soloBite = new Audio("assets/sounds/solo-bite.mp3");
-let lukeBite = new Audio("");
+let lukeBite = new Audio("assets/sounds/lukesoundbite01.mp3");
 let trooperBite = new Audio("");
+let greedoBite = new Audio("");
 
 // to play epic fight music with button clicks
 
@@ -18,14 +19,9 @@ let trooperBite = new Audio("");
     });
 
 
-//Create some objects to store characters and their stats
 
-let vader = {
-    name: 'Darth Vader',
-    health: 5000,
-    attack: 300,
-    counter: 100,
-};
+
+//Create some objects to store characters and their stats
 
 let solo = {
     name: 'Han Solo',
@@ -35,11 +31,12 @@ let solo = {
     health: 2000,
     attack: 100,
     counter: 400,
+    choosenSolo:  selectChar(solo, skyWalker || stormTrooper || greedo),
 };
 
 let skyWalker = {
     name: 'Luke Skywalker',
-    lukeSound: $("#solo").on("click", function () {
+    lukeSound: $("#luke").on("click", function () {
         lukeBite.play()
         }),
     health: 3000,
@@ -49,8 +46,18 @@ let skyWalker = {
 
 let stormTrooper = {
     name: 'Stormtrooper',
-    trooperSound: $("#solo").on("click", function () {
+    trooperSound: $("#trooper").on("click", function () {
         trooperBite.play()
+        }),
+    health: 500,
+    attack: 100,
+    counter: 50,
+};
+
+let greedo = {
+    name: 'Greedo',
+    greedoSound: $("#greedo").on("click", function () {
+        greedoBite.play()
         }),
     health: 500,
     attack: 100,
@@ -68,20 +75,22 @@ console.log(vader.name + vader.health, solo.name + solo.health, skyWalker.name +
 //     console.log(solo);
 // };
 
-// let gameStart = {
-//     selectChar: function (user, enemy) {
-//         $("image").on('click').css("border", "blue").addClass("user-chosen");
-//         $("image").on('click').css("border", "red").addClass("enemy-chosen");
-//     },
-//     moveChar: function (user, enemy) {
-//         if (selectChar == true)
-//             $(selectChar).append("#user-character");
+let gameStart = {
+    selectChar: function (user, enemy) {
+        $("button").on('click').css("border", "green").addClass("user-chosen");
+        $("button").on('click').css("border", "red").addClass("enemy-chosen");
+    },
+    moveChar: function (user, enemy) {
+        if (user == true )
+            $(user).append("#user-character");
 
-//         else if (!selectChar)
-//             $().append("#enemy-character")
-//     },
+        else if (enemy == true)
+            $(enemy).append("#enemy-character")
+    },
 
-// };
+};
+
+//if chosen 1st, move to user-character 
 
 
 
