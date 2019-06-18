@@ -8,25 +8,26 @@ body {
   
   }
   
-  h1, h2, h3 {
+  h1, h2, h5 {
     color: white;
+    
   }
 
   div {
     padding: 5px;
     margin: 5px;
-    border: solid;
+    border: none;
     border-color:white;
   }
 
   img {
-    border: 1px solid black;
+    border: 0px;
     border-radius: 3px;
     padding: 5px;
   }
 
   
-  #header-area {
+  /* #header-area {
     border-color: red;
   }
 
@@ -36,19 +37,21 @@ body {
 
   #characters-moved {
       border-color:hotpink;
-  }
+  } */
 
   #characters-area {
     text-align: center;
   }
 
 
-  #solo, #luke, #R2, #trooper, #greedo { 
+  #solo, #luke, #droid, #trooper, #greedo { 
     background-color: Transparent;
     background-repeat:no-repeat;
     border: lightcoral;
     cursor:pointer;
-    overflow: hidden;        
+    overflow: hidden;
+    color: white;
+    font-weight: bolder;
   }
 
 
