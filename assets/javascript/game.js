@@ -91,10 +91,10 @@ console.log(greedo.name + greedo.health, solo.name + solo.health, skyWalker.name
 
 //Add name and health stats to character html
 $("#solo").prepend("Name: " + solo.name + "<br>" + "Health: " + solo.health);
-$("#luke").prepend("Name: " + skyWalker.name + "<br>" + "Health" + skyWalker.health);
-$("#droid").prepend("Name: " + droid.name + "<br>" + "Health" + droid.health);
-$("#trooper").prepend("Name: " + stormTrooper.name + "<br>" + "Health" + stormTrooper.health);
-$("#greedo").prepend("Name: " + greedo.name + "<br>" + "Health" + greedo.health);
+$("#luke").prepend("Name: " + skyWalker.name + "<br>" + "Health: " + skyWalker.health);
+$("#droid").prepend("Name: " + droid.name + "<br>" + "Health: " + droid.health);
+$("#trooper").prepend("Name: " + stormTrooper.name + "<br>" + "Health: " + stormTrooper.health);
+$("#greedo").prepend("Name: " + greedo.name + "<br>" + "Health: " + greedo.health);
 
 //move character function
 
