@@ -132,7 +132,8 @@ function heaven() {
 
 //Create some objects to store characters and their stats
 
-let solo = {
+let characters = [
+    {
     name: 'Han Solo',
     soloSound: $("#solo").on("click", function () {
         soloBite.play();
@@ -140,11 +141,10 @@ let solo = {
     }),
     health: 2000,
     attack: 50,
-    counter: 200,
-};
+    counter: 200
+},
 
-let droid = {
-
+    {
     name: 'R2-D2',
     r2Sound: $("#droid").on("click", function () {
         r2Bite.play();
@@ -152,12 +152,11 @@ let droid = {
     }),
     health: 2000,
     attack: 50,
-    counter: 200,
-};
+    counter: 200
+},
 
 
-let skyWalker = {
-
+{
     name: 'Luke Skywalker',
     lukeSound: $("#luke").on("click", function () {
         lukeBite.play();
@@ -165,31 +164,29 @@ let skyWalker = {
     }),
     health: 3000,
     attack: 100,
-    counter: 50,
-};
+    counter: 50
+},
 
-
-let stormTrooper = {
-
+    {
     name: 'Stormtrooper',
     trooperSound: $("#trooper").on("click", function () {
         trooperBite.play();
     }),
     health: 500,
     attack: 20,
-    counter: 10,
-};
+    counter: 10
+},
 
-let greedo = {
-
+{
     name: 'Greedo',
     greedoSound: $("#greedo").on("click", function () {
         greedoBite.play();
     }),
     health: 5000,
     attack: 100,
-    counter: 50,
-};
+    counter: 50
+},
+];
 
 //Check all my characters are in fighting condition
 console.log(greedo.name + greedo.health, solo.name + solo.health, skyWalker.name + skyWalker.health, stormTrooper.name + stormTrooper.health, droid.name + " health:" + droid.health);
