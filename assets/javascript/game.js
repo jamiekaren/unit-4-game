@@ -40,52 +40,52 @@ console.log(enemyChar);
 
 
 
-$("#characters-area").find("#solo").click(function () {
-    userChar = ($(this).attr('id'));
-    console.log('Your Character is ' + userChar);
-    $("#solo").prependTo("#user-character");
-});
-
-$("#characters-area").find("#luke").click(function () {
-    userChar = ($(this).attr('id'));
-    console.log('Your Character is ' + userChar);
-    $("#luke").prependTo("#user-character");
-});
-
-$("#characters-area").find("#droid").click(function () {
-    userChar = ($(this).attr('id'));
-    console.log('Your Character is ' + userChar);
-    $("#droid").prependTo("#user-character");
-});
-
-$("#characters-area").find("#trooper").click(function () {
-    userChar = ($(this).attr('id'));
-    console.log('Your Character is ' + userChar);
-    $("#trooper").prependTo("#enemy-character");
-});
-
-$("#characters-area").find("#greedo").click(function () {
-    userChar = ($(this).attr('id'));
-    console.log('Your Character is ' + userChar);
-    $("#greedo").prependTo("#enemy-character");
-});
-
-//Character that user selects
-// $("#characters-area").find("button").click(function () {
-
-//     if (userChar === 'user') {
-//         userChar = ($(this).attr('id'));
-//         console.log('Your Character is ' + userChar);
-//         moveChar();
-
-
-//     } else if (enemyChar === 'enemy') {
-//         enemyChar = ($(this).attr('id'));
-//         console.log('Your Enemy is ' + enemyChar);
-//         moveEnemy();
-//     }
-
+// $("#characters-area").find("#solo").click(function () {
+//     userChar = ($(this).attr('id'));
+//     console.log('Your Character is ' + userChar);
+//     $("#solo").prependTo("#user-character");
 // });
+
+// $("#characters-area").find("#luke").click(function () {
+//     userChar = ($(this).attr('id'));
+//     console.log('Your Character is ' + userChar);
+//     $("#luke").prependTo("#user-character");
+// });
+
+// $("#characters-area").find("#droid").click(function () {
+//     userChar = ($(this).attr('id'));
+//     console.log('Your Character is ' + userChar);
+//     $("#droid").prependTo("#user-character");
+// });
+
+// $("#characters-area").find("#trooper").click(function () {
+//     userChar = ($(this).attr('id'));
+//     console.log('Your Character is ' + userChar);
+//     $("#trooper").prependTo("#enemy-character");
+// });
+
+// $("#characters-area").find("#greedo").click(function () {
+//     userChar = ($(this).attr('id'));
+//     console.log('Your Character is ' + userChar);
+//     $("#greedo").prependTo("#enemy-character");
+// });
+
+Character that user selects
+$("#characters-area").find("button").click(function () {
+
+    if (userChar === 'user') {
+        userChar = ($(this).attr('id'));
+        console.log('Your Character is ' + userChar);
+        $(this).prependTo("#user-character");
+
+
+    } else if (enemyChar === 'enemy') {
+        enemyChar = ($(this).attr('id'));
+        console.log('Your Enemy is ' + enemyChar);
+        $(this).prependTo("#enemy-character");
+    }
+
+});
 
 // moveChar();
 // moveEnemy();
