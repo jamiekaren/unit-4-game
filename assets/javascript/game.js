@@ -21,25 +21,6 @@ $("#pause-button").on("click", function () {
     themeMusic.pause();
 });
 
-// to play sound by for fighting button
-
-// $("#attack-button").on("click", function () {
-//     fightBite.play();
-//     console.log('Playing theme music');
-// });
-
-
-
-
-/*minus user attack number from enemy
-then minus enemy counter-attack number from user
-then display user attack stats in sentence on document
-then add user attack number back into itself
-then display enemy attack stats in sentence on document
-if health <= to 0 , set dead variable to true, run heaven function
-
-    */
-
 
 //move character once selected 
 
@@ -57,23 +38,72 @@ let enemyChar = 'enemy';
 console.log(userChar);
 console.log(enemyChar);
 
-$("#characters-area").find("button").click(function () {
 
-    if (userChar === 'user') {
-        fightBite.play();
-        userChar = ($(this).attr('id'));
-        console.log('Your Character is ' + userChar + (typeof(userChar)));
-        $(userChar).replaceWith('#' + userChar).prependTO("#user-character");
-        
-        // document.getElementById(userChar).append("#user-character");
 
-    } else if (enemyChar === 'enemy') {
-        enemyChar = ($(this).attr('id'));
-        console.log('Your Enemy is ' + enemyChar);
-    }
+$("#characters-area").find("#solo").click(function () {
+    userChar = ($(this).attr('id'));
+    console.log('Your Character is ' + userChar);
+    $("#solo").prependTo("#user-character");
+});
 
+$("#characters-area").find("#luke").click(function () {
+    userChar = ($(this).attr('id'));
+    console.log('Your Character is ' + userChar);
+    $("#luke").prependTo("#user-character");
+});
+
+$("#characters-area").find("#droid").click(function () {
+    userChar = ($(this).attr('id'));
+    console.log('Your Character is ' + userChar);
+    $("#droid").prependTo("#user-character");
+});
+
+$("#characters-area").find("#trooper").click(function () {
+    userChar = ($(this).attr('id'));
+    console.log('Your Character is ' + userChar);
+    $("#trooper").prependTo("#enemy-character");
+});
+
+$("#characters-area").find("#greedo").click(function () {
+    userChar = ($(this).attr('id'));
+    console.log('Your Character is ' + userChar);
+    $("#greedo").prependTo("#enemy-character");
+});
+
+//Character that user selects
+// $("#characters-area").find("button").click(function () {
+
+//     if (userChar === 'user') {
+//         userChar = ($(this).attr('id'));
+//         console.log('Your Character is ' + userChar);
+//         moveChar();
+
+
+//     } else if (enemyChar === 'enemy') {
+//         enemyChar = ($(this).attr('id'));
+//         console.log('Your Enemy is ' + enemyChar);
+//         moveEnemy();
+//     }
+
+// });
+
+// moveChar();
+// moveEnemy();
+
+// function hit(e, u) {
+//     e.health - u.attack
+// };
+
+
+
+//attack button
+$("#attack-button").on("click", function () {
+    fightBite.play();
+    console.log('Playing theme music');
 
 });
+
+
 
 // if (userChar === 'solo') {
 //     moveChar ("#solo", "#user-character"); 
@@ -166,20 +196,6 @@ $("#luke").prepend(skyWalker.name + "<br>" + "Health: " + skyWalker.health);
 $("#droid").prepend(droid.name + "<br>" + "Health: " + droid.health);
 $("#trooper").prepend(stormTrooper.name + "<br>" + "Health: " + stormTrooper.health);
 $("#greedo").prepend(greedo.name + "<br>" + "Health: " + greedo.health);
-
-//move character function
-
-// greedo.health = 0;
-
-// console.log(greedo.health);
-
-
-
-
-
-
-
-
 
 
 // moveChar ("#luke", "#user-character");
