@@ -84,9 +84,9 @@ console.log(enemyChar);
 $("#characters-area").find("button").click(function () {
 
     if (userChar === 'user') {
-        userChar = ($(this).attr('id'));
-        console.log('Your Character is  ' + userChar);
         $(this).prependTo("#user-character");
+         userChar = ($(this).attr('id'));
+         console.log('Your Character is  ' + userChar);
 
 
     } else if (enemyChar === 'enemy') {
