@@ -21,6 +21,16 @@ $("#pause-button").on("click", function () {
     themeMusic.pause();
 });
 
+//Check all my characters are in fighting condition
+console.log(greedo.name + greedo.health, solo.name + solo.health, skyWalker.name + skyWalker.health, stormTrooper.name + stormTrooper.health, droid.name + " health:" + droid.health);
+
+//Add name and health stats to character html
+$("#solo").prepend(solo.name + "<br>" + "Health: " + solo.health);
+$("#luke").prepend(skyWalker.name + "<br>" + "Health: " + skyWalker.health);
+$("#droid").prepend(droid.name + "<br>" + "Health: " + droid.health);
+$("#trooper").prepend(stormTrooper.name + "<br>" + "Health: " + stormTrooper.health);
+$("#greedo").prepend(greedo.name + "<br>" + "Health: " + greedo.health);
+
 
 //move character once selected 
 
@@ -75,13 +85,13 @@ $("#characters-area").find("button").click(function () {
 
     if (userChar === 'user') {
         userChar = ($(this).attr('id'));
-        console.log('Your Character is ' + userChar);
+        console.log('Your Character is  ' + userChar);
         $(this).prependTo("#user-character");
 
 
     } else if (enemyChar === 'enemy') {
         enemyChar = ($(this).attr('id'));
-        console.log('Your Enemy is ' + enemyChar);
+        console.log('Your evil Enemy is your ' + enemyChar);
         $(this).prependTo("#enemy-character");
     }
 
@@ -186,23 +196,6 @@ let greedo = {
     attack: 100,
     counter: 50,
 };
-
-//Check all my characters are in fighting condition
-console.log(greedo.name + greedo.health, solo.name + solo.health, skyWalker.name + skyWalker.health, stormTrooper.name + stormTrooper.health, droid.name + " health:" + droid.health);
-
-//Add name and health stats to character html
-$("#solo").prepend(solo.name + "<br>" + "Health: " + solo.health);
-$("#luke").prepend(skyWalker.name + "<br>" + "Health: " + skyWalker.health);
-$("#droid").prepend(droid.name + "<br>" + "Health: " + droid.health);
-$("#trooper").prepend(stormTrooper.name + "<br>" + "Health: " + stormTrooper.health);
-$("#greedo").prepend(greedo.name + "<br>" + "Health: " + greedo.health);
-
-
-// moveChar ("#luke", "#user-character");
-// moveChar ("#droid", "#user-character");
-// moveChar ("#solo", "#user-character");
-// moveChar ("#trooper", "#enemy-character");
-// moveChar ("#greedo", "#enemy-character");
 
 
 
