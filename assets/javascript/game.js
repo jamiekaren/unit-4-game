@@ -80,7 +80,7 @@ console.log(enemyChar);
 //     $("#greedo").prependTo("#enemy-character");
 // });
 
-Character that user selects
+//Character that user selects
 $("#characters-area").find("button").click(function () {
 
     if (userChar === 'user') {
