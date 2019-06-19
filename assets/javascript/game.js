@@ -92,17 +92,19 @@ $("#characters-area").find("button").click(function () {
 // moveChar();
 // moveEnemy();
 
-// function hit(e, u) {
-//     e.health - u.attack
-// };
+function letsFight (e, u) {
+    let result = e.health - u.health;
+   $("#attack-button").prependTo("You attacked" + enemyChar + result);
+};
 
 
 
 //attack button
 $("#attack-button").on("click", function () {
     fightBite.play();
-    console.log('Playing theme music');
-
+    console.log(userChar, enemyChar);
+    letsFight(enemyChar, userChar);
+    console.log(enemyChar.health, userChar.health)
 });
 
 
