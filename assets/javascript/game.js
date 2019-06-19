@@ -21,15 +21,7 @@ $("#pause-button").on("click", function () {
     themeMusic.pause();
 });
 
-//Check all my characters are in fighting condition
-console.log(greedo.name + greedo.health, solo.name + solo.health, skyWalker.name + skyWalker.health, stormTrooper.name + stormTrooper.health, droid.name + " health:" + droid.health);
 
-//Add name and health stats to character html
-$("#solo").prepend(solo.name + "<br>" + "Health: " + solo.health);
-$("#luke").prepend(skyWalker.name + "<br>" + "Health: " + skyWalker.health);
-$("#droid").prepend(droid.name + "<br>" + "Health: " + droid.health);
-$("#trooper").prepend(stormTrooper.name + "<br>" + "Health: " + stormTrooper.health);
-$("#greedo").prepend(greedo.name + "<br>" + "Health: " + greedo.health);
 
 
 //move character once selected 
@@ -197,7 +189,15 @@ let greedo = {
     counter: 50,
 };
 
+//Check all my characters are in fighting condition
+console.log(greedo.name + greedo.health, solo.name + solo.health, skyWalker.name + skyWalker.health, stormTrooper.name + stormTrooper.health, droid.name + " health:" + droid.health);
 
+//Add name and health stats to character html
+$("#solo").prepend(solo.name + "<br>" + "Health: " + solo.health);
+$("#luke").prepend(skyWalker.name + "<br>" + "Health: " + skyWalker.health);
+$("#droid").prepend(droid.name + "<br>" + "Health: " + droid.health);
+$("#trooper").prepend(stormTrooper.name + "<br>" + "Health: " + stormTrooper.health);
+$("#greedo").prepend(greedo.name + "<br>" + "Health: " + greedo.health);
 
 //if chosen 1st, move to user-character 
 
