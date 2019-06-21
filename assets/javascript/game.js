@@ -44,7 +44,7 @@ let characters = [
         stats: $("#droid").prepend(this.name + "<br>" + "Health: " + this.health),
         health: 200,
         attack: 15,
-        counter: 5
+        counter: 10
     },
 
 
@@ -84,7 +84,7 @@ let characters = [
         },
         stats: $("#greedo").prepend(this.name + "<br>" + "Health: " + this.health),
         health: 500,
-        attack: 10,
+        attack: 15,
         counter: 5
     },
 ];
@@ -148,12 +148,12 @@ fightBite.play();
 function dead() {
     if (arenaObj.ally.health <= 0) {
         alert("Game Over!");
-        $("#arena-text").text("You are dead. The Galaxy will fall into chaos.");
+        $("#arena-text").replaceWith("You are dead. The Galaxy will fall into chaos.");
 
         // $("#arena").prependTo("You are dead.");
 
     } else if (arenaObj.enemy.health <= 0) {
-        $("#arena-text").replaceWith(arenaObj.enemy.name + " is dead. The Force is strong with you." + "<br>");
+        $("#arena-text").text(arenaObj.enemy.name + " is dead. The Force is strong with you." + "<br>");
         $("#enemy-character").empty();
     }
 
@@ -176,7 +176,7 @@ $("#arena").on('click', function () {
 
     console.log("Your enemy HP is " + arenaObj.enemy.health + " and your HP is " + arenaObj.ally.health );
 
-    $("#arena-text").replaceWith(arenaObj.enemy.name + " attacked you for " + arenaObj.enemy.counter + " damange." + "<br>" + "You attacked " + arenaObj.enemy.name + " for " + arenaObj.ally.attack + " damage." );
+    $("#arena-text").text(arenaObj.enemy.name + " attacked you for " + arenaObj.enemy.counter + " damange."  + "You attacked " + arenaObj.enemy.name + " for " + arenaObj.ally.attack + " damage." );
     
 
 });
