@@ -4,11 +4,6 @@ console.log("Working...");
 // variables for audio on page
 
 let themeMusic = new Audio("assets/sounds/star-wars-theme.mp3");
-let soloBite = new Audio("assets/sounds/solo-bite.mp3");
-let lukeBite = new Audio("assets/sounds/luke-bite.mp3");
-let trooperBite = new Audio("assets/sounds/droidsound02.mp3");
-let greedoBite = new Audio("assets/sounds/greedo-2.mp3");
-let r2Bite = new Audio("assets/sounds/R2D2-sound01.mp3");
 let fightBite = new Audio("assets/sounds/light-saber.mp3");
 
 // to play epic fight music with button clicks
@@ -21,191 +16,222 @@ $("#pause-button").on("click", function () {
     themeMusic.pause();
 });
 
+// Create an arena object for the ally & enemy buttons
+let arenaObj = {};
+
+//Create some objects to store characters and their stats
+let characters = [
+    {
+        id: 'solo',
+        name: 'Han Solo',
+        soloSound: new Audio("assets/sounds/solo-bite.mp3"),
+        playSound: function () {
+            this.soloSound.play();
+        },
+        health: 500,
+        attack: 20,
+        counter: 20,
+        stats: $("#solo").prepend(this.name + "<br>" + "Health: " + this.health),
+    },
+
+    {
+        id: 'droid',
+        name: 'R2-D2',
+        r2Sound: new Audio("assets/sounds/R2D2-sound01.mp3"),
+        playSound: function () {
+            this.r2Sound.play();
+        },
+        stats: $("#droid").prepend(this.name + "<br>" + "Health: " + this.health),
+        health: 200,
+        attack: 15,
+        counter: 5
+    },
 
 
+    {
+        id: 'luke',
+        name: 'Luke Skywalker',
+        lukeSound: new Audio("assets/sounds/luke-bite.mp3"),
+        playSound: function () {
+            this.lukeSound.play();
 
-//move character once selected 
+        },
+        stats: $("#luke").prepend(this.name + "<br>" + "Health: " + this.health),
+        health: 300,
+        attack: 25,
+        counter: 5
+    },
 
-//    function moveChar (char, area) {
-//     $(char).on("click", function () {
-//         $(char).prependTo(area);
-//     });
-// };
+    {
+        id: 'trooper',
+        name: 'Stormtrooper',
+        trooperSound: new Audio("assets/sounds/droidsound02.mp3"),
+        playSound: function () {
+            this.trooperSound.play();
+        },
+        stats: $("#trooper").prepend(this.name + "<br>" + "Health: " + this.health),
+        health: 100,
+        attack: 5,
+        counter: 5
+    },
 
-// select your character
+    {
+        id: 'greedo',
+        name: 'Greedo',
+        greedoSound: new Audio("assets/sounds/greedo-2.mp3"),
+        playSound: function () {
+            this.greedoSound.play();
+        },
+        stats: $("#greedo").prepend(this.name + "<br>" + "Health: " + this.health),
+        health: 500,
+        attack: 10,
+        counter: 5
+    },
+];
 
-let userChar = 'user';
-let enemyChar = 'enemy';
+//character selection, sound, and move process with button click
 
-console.log(userChar);
-console.log(enemyChar);
+//watches for button click on div area 
+$("#characters-area :button").click(function () {
 
+    // Capture the ID of this object
+    let id = $(this).attr('id');
+    
 
+    // Iterate over the array and compare this button's id
+    // to the array-object's id
+    characters.forEach(function (object) {
 
-// $("#characters-area").find("#solo").click(function () {
-//     userChar = ($(this).attr('id'));
-//     console.log('Your Character is ' + userChar);
-//     $("#solo").prependTo("#user-character");
-// });
+        if (object.id === id) {
+            if ($("#user-character > button").length === 0) {
+                console.log('Your character is ' + id);
+                $("#" + id).prependTo("#user-character");
 
-// $("#characters-area").find("#luke").click(function () {
-//     userChar = ($(this).attr('id'));
-//     console.log('Your Character is ' + userChar);
-//     $("#luke").prependTo("#user-character");
-// });
+                // Add corresponding object into the arenaObj as an ally
+                arenaObj.ally = object;
+            }
 
-// $("#characters-area").find("#droid").click(function () {
-//     userChar = ($(this).attr('id'));
-//     console.log('Your Character is ' + userChar);
-//     $("#droid").prependTo("#user-character");
-// });
+            else {
+                $("#" + id).prependTo("#enemy-character");
+                console.log("Your enemy is " + id);
 
-// $("#characters-area").find("#trooper").click(function () {
-//     userChar = ($(this).attr('id'));
-//     console.log('Your Character is ' + userChar);
-//     $("#trooper").prependTo("#enemy-character");
-// });
+                // Add corresponding object into the arenaObj as an enemy
+                arenaObj.enemy = object;
+            }
 
-// $("#characters-area").find("#greedo").click(function () {
-//     userChar = ($(this).attr('id'));
-//     console.log('Your Character is ' + userChar);
-//     $("#greedo").prependTo("#enemy-character");
-// });
+            // We know what object it is, and since the user
+            // clicks on one object at a time, we can
+            // play the sound of that object
+            object.playSound();
 
-//Character that user selects
-$("#characters-area").find("button").click(function () {
-
-    if (userChar === 'user') {
-        $(this).prependTo("#user-character");
-         userChar = ($(this).attr('id'));
-         console.log('Your Character is  ' + userChar);
-
-
-    } else if (enemyChar === 'enemy') {
-        enemyChar = ($(this).attr('id'));
-        console.log('Your evil Enemy is your ' + enemyChar);
-        $(this).prependTo("#enemy-character");
-    }
+        }
+    });
 
 });
 
-// moveChar();
-// moveEnemy();
+/*
+somehow grab user and enemy properties based off selections
+Maybe compare character div to object?
+Then compare enemy div to object?
+enemy health - user char attack number
+user char health - enemy counter number
+prepend this to above attack div
+push health result to enemy char
+push health result to user char
 
-function letsFight (e, u) {
-    let result = e.health - u.health;
-   $("#attack-button").prependTo("You attacked" + enemyChar + result);
+create seperate function to check if health is 0 or less??
+fightBite.play();
+*/
+
+
+//Death check
+function dead() {
+    if (arenaObj.ally.health <= 0) {
+        alert("Game Over!");
+        $("#arena-text").text("You are dead. The Galaxy will fall into chaos.");
+
+        // $("#arena").prependTo("You are dead.");
+
+    } else if (arenaObj.enemy.health <= 0) {
+        $("#arena-text").replaceWith(arenaObj.enemy.name + " is dead. The Force is strong with you." + "<br>");
+        $("#enemy-character").empty();
+    }
+
 };
-
 
 
 //attack button
-$("#attack-button").on("click", function () {
-    fightBite.play();
-    console.log(userChar, enemyChar);
-    letsFight(enemyChar, userChar);
-    console.log(enemyChar.health, userChar.health)
+
+$("#arena").on('click', function () {
+    // console.log(arenaObj);
+
+    dead();
+
+
+    arenaObj.enemy.health = arenaObj.enemy.health - arenaObj.ally.attack;
+
+    arenaObj.ally.health = arenaObj.ally.health - arenaObj.enemy.counter;
+
+    
+
+    console.log("Your enemy HP is " + arenaObj.enemy.health + " and your HP is " + arenaObj.ally.health );
+
+    $("#arena-text").replaceWith(arenaObj.enemy.name + " attacked you for " + arenaObj.enemy.counter + " damange." + "<br>" + "You attacked " + arenaObj.enemy.name + " for " + arenaObj.ally.attack + " damage." );
+    
+
 });
 
 
-
-// if (userChar === 'solo') {
-//     moveChar ("#solo", "#user-character"); 
-// } else ()
-
-
-
-/*
-when a character dies, they go to character heaven
-Need to select object health property in user character div
-and enemy char div
-if health <= 0 then set button to hidden
+/* need to do enemy health - ally
+ push result enemy health
+ ally health - enemy counter
+ push new ally health to ally health
+ Need to replace id text with new health, so prepend to using the
+ $("#" + ally.id).replaceWith("Name: " + ally.name + "<br>" + "Health: " + ally.health);
+ run dead function lol.
 */
 
-function heaven() {
-    if (userDead == true)
-        $("#user-character").hidden();
-    else if (enemyDead = true)
-        $("#enemy-character").remove("btn");
-};
-
-
-//Create some objects to store characters and their stats
-
-let solo = {
-    name: 'Han Solo',
-    soloSound: $("#solo").on("click", function () {
-        soloBite.play();
-        console.log('Sound bite works!');
-    }),
-    health: 2000,
-    attack: 50,
-    counter: 200,
-};
-
-let droid = {
-
-    name: 'R2-D2',
-    r2Sound: $("#droid").on("click", function () {
-        r2Bite.play();
-        console.log('Sound bite works!');
-    }),
-    health: 2000,
-    attack: 50,
-    counter: 200,
-};
-
-
-let skyWalker = {
-
-    name: 'Luke Skywalker',
-    lukeSound: $("#luke").on("click", function () {
-        lukeBite.play();
-        console.log('Sound bite works!');
-    }),
-    health: 3000,
-    attack: 100,
-    counter: 50,
-};
-
-
-let stormTrooper = {
-
-    name: 'Stormtrooper',
-    trooperSound: $("#trooper").on("click", function () {
-        trooperBite.play();
-    }),
-    health: 500,
-    attack: 20,
-    counter: 10,
-};
-
-let greedo = {
-
-    name: 'Greedo',
-    greedoSound: $("#greedo").on("click", function () {
-        greedoBite.play();
-    }),
-    health: 5000,
-    attack: 100,
-    counter: 50,
-};
-
-//Check all my characters are in fighting condition
-console.log(greedo.name + greedo.health, solo.name + solo.health, skyWalker.name + skyWalker.health, stormTrooper.name + stormTrooper.health, droid.name + " health:" + droid.health);
-
-//Add name and health stats to character html
-$("#solo").prepend(solo.name + "<br>" + "Health: " + solo.health);
-$("#luke").prepend(skyWalker.name + "<br>" + "Health: " + skyWalker.health);
-$("#droid").prepend(droid.name + "<br>" + "Health: " + droid.health);
-$("#trooper").prepend(stormTrooper.name + "<br>" + "Health: " + stormTrooper.health);
-$("#greedo").prepend(greedo.name + "<br>" + "Health: " + greedo.health);
-
-//if chosen 1st, move to user-character 
 
 
 
-//When character is selected, move remaining images to left column
-//Also move selected character to left of screen (characters start in the middle)
-//Create on click event for "Fight" button 
+
+
+
+    // $("#user-character > button").find('id', function () {
+
+    //     userFight = $(this).attr('id');
+    //     console.log(userFight);
+
+    //     characters.forEach(function (object) {
+
+    //         if (object.id === userFight) {
+    //             uHealth = $(this.health);
+    //             uAttack = $(this.attack);
+
+    //         }
+
+    //     });
+
+    // });
+
+
+    // $("#enemy-character > button").on("click", function () {
+
+    //     enemyFight = $(this).attr('id');
+    //     console.log(enemyFight);
+
+    //     characters.forEach(function (object) {
+
+    //         if (object.id === enemyFight) {
+    //             eHealth = $(this.health);
+    //             eCounter = $(this.counter);
+
+    //         }
+
+    //     });
+
+    // });
+
+
+
 

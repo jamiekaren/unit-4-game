@@ -13,6 +13,12 @@ body {
     
   }
 
+  #arena {
+    color: white;
+    font-weight: bolder;
+    font-size: 40px;
+  }
+
    #choose {
        border: none;
        border-color: rgba(169,169,169);
