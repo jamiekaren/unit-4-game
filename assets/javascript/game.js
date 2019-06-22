@@ -1,5 +1,18 @@
 console.log("Working...");
 
+/* Initial ideas...
+somehow grab user and enemy properties based off selections
+Maybe compare character div to object?
+Then compare enemy div to object?
+enemy health - user char attack number
+user char health - enemy counter number
+prepend this to above attack div
+push health result to enemy char
+push health result to user char
+
+create seperate function to check if health is 0 or less??
+fightBite.play();
+*/
 
 // variables for audio on page
 
@@ -51,7 +64,7 @@ let characters = [
     {
         id: 'luke',
         name: 'Luke Skywalker',
-        lukeSound: new Audio("assets/sounds/luke-bite.mp3"),
+        lukeSound: new Audio("assets/sounds/luke02.mp3"),
         playSound: function () {
             this.lukeSound.play();
 
@@ -134,44 +147,38 @@ $("#characters-area :button").click(function () {
 
 });
 
-/*
-somehow grab user and enemy properties based off selections
-Maybe compare character div to object?
-Then compare enemy div to object?
-enemy health - user char attack number
-user char health - enemy counter number
-prepend this to above attack div
-push health result to enemy char
-push health result to user char
 
-create seperate function to check if health is 0 or less??
-fightBite.play();
+
+
+/*Death check -- if health is 0 or less, empty div area 
+Also add cute little sayings at the end.
+But sadly cannot both write text when enemy dies and when ally dies...even when
+I make a seperate div area for each? Sigh...
+I like the alert, keeping that though originally just to confirm it was working.
+Also, only dies after 0 even if button click initiates it, if it goes to 0 shou'dn't it run???
+
 */
 
-
-//Death check
 function dead() {
     if (arenaObj.ally.health <= 0) {
         $("#user-character").empty();
         alert("Game Over!");
-        $("#fight-outcome").adds("<br> You are dead. The Galaxy will fall into chaos! <p>");
-        
+        $("#fight-outcome").text("<br> You are dead. The Galaxy will fall into chaos! <p>");
 
-        // $("#arena").prependTo("You are dead.");
 
     } else if (arenaObj.enemy.health <= 0) {
         $("#enemy-character").empty();
-        $("#fight-outcome").text(arenaObj.enemy.name + " is dead. The Force is strong with you!" );
-       
+        $("#fight-outcome").text(arenaObj.enemy.name + " is dead. The Force is strong with you!");
     }
-
 };
 
 
-//attack button
+/*Characters are seleceted, now we have our attack button.
+User clicks on button, 
+
+*/
 
 $("#arena").on('click', function () {
-    // console.log(arenaObj);
 
     dead();
     // $("#fight-outcome").empty();
@@ -179,7 +186,11 @@ $("#arena").on('click', function () {
 
     arenaObj.enemy.health -= arenaObj.ally.attack;
 
+    dead();
+
     arenaObj.ally.health -= arenaObj.enemy.counter;
+
+    dead();
 
 
     //FOR I = 0, IF I IS LESS THAN 0, ADD 1.
@@ -189,7 +200,7 @@ $("#arena").on('click', function () {
     // multiple and increase by 1 each time
     // times the number by itself??
 
-    
+
 
     // for (i = 0; i < 5; i++) {
     //     arenaObj.ally.attack = arenaObj.ally.attack * i;
@@ -204,6 +215,8 @@ $("#arena").on('click', function () {
         " for " + arenaObj.ally.attack + " damage.");
 
 });
+
+
 
 
 /* need to do enemy health - ally
