@@ -28,9 +28,9 @@ let characters = [
         playSound: function () {
             this.soloSound.play();
         },
-        health: 500,
-        attack: 20,
-        counter: 20,
+        health: 1500,
+        attack: 5,
+        counter: 10,
         stats: $("#solo").prepend(this.name + "<br>" + "Health: " + this.health),
     },
 
@@ -42,9 +42,9 @@ let characters = [
             this.r2Sound.play();
         },
         stats: $("#droid").prepend(this.name + "<br>" + "Health: " + this.health),
-        health: 200,
-        attack: 15,
-        counter: 10
+        health: 75,
+        attack: 5,
+        counter: 10,
     },
 
 
@@ -57,9 +57,9 @@ let characters = [
 
         },
         stats: $("#luke").prepend(this.name + "<br>" + "Health: " + this.health),
-        health: 300,
-        attack: 25,
-        counter: 5
+        health: 120,
+        attack: 5,
+        counter: 15,
     },
 
     {
@@ -70,9 +70,9 @@ let characters = [
             this.trooperSound.play();
         },
         stats: $("#trooper").prepend(this.name + "<br>" + "Health: " + this.health),
-        health: 100,
+        health: 50,
         attack: 5,
-        counter: 5
+        counter: 5,
     },
 
     {
@@ -82,12 +82,16 @@ let characters = [
         playSound: function () {
             this.greedoSound.play();
         },
-        stats: $("#greedo").prepend(this.name + "<br>" + "Health: " + this.health),
-        health: 500,
-        attack: 15,
-        counter: 5
+        // stats: function () 
+        // { $('#greedo').prepend(this.name + "<br>" + "Health: " + this.health)},
+        health: 200,
+        attack: 5,
+        counter: 25,
     },
 ];
+
+// characters.stats ();
+
 
 //character selection, sound, and move process with button click
 
@@ -96,7 +100,7 @@ $("#characters-area :button").click(function () {
 
     // Capture the ID of this object
     let id = $(this).attr('id');
-    
+
 
     // Iterate over the array and compare this button's id
     // to the array-object's id
@@ -124,6 +128,7 @@ $("#characters-area :button").click(function () {
             // play the sound of that object
             object.playSound();
 
+
         }
     });
 
@@ -147,14 +152,17 @@ fightBite.play();
 //Death check
 function dead() {
     if (arenaObj.ally.health <= 0) {
+        $("#user-character").empty();
         alert("Game Over!");
-        $("#arena-text").replaceWith("You are dead. The Galaxy will fall into chaos.");
+        $("#fight-outcome").adds("<br> You are dead. The Galaxy will fall into chaos! <p>");
+        
 
         // $("#arena").prependTo("You are dead.");
 
     } else if (arenaObj.enemy.health <= 0) {
-        $("#arena-text").text(arenaObj.enemy.name + " is dead. The Force is strong with you." + "<br>");
         $("#enemy-character").empty();
+        $("#fight-outcome").text(arenaObj.enemy.name + " is dead. The Force is strong with you!" );
+       
     }
 
 };
@@ -166,18 +174,34 @@ $("#arena").on('click', function () {
     // console.log(arenaObj);
 
     dead();
+    // $("#fight-outcome").empty();
 
 
-    arenaObj.enemy.health = arenaObj.enemy.health - arenaObj.ally.attack;
+    arenaObj.enemy.health -= arenaObj.ally.attack;
 
-    arenaObj.ally.health = arenaObj.ally.health - arenaObj.enemy.counter;
+    arenaObj.ally.health -= arenaObj.enemy.counter;
+
+
+    //FOR I = 0, IF I IS LESS THAN 0, ADD 1.
+
+    // if i = 0; i < 0; i**) 
+
+    // multiple and increase by 1 each time
+    // times the number by itself??
 
     
 
-    console.log("Your enemy HP is " + arenaObj.enemy.health + " and your HP is " + arenaObj.ally.health );
+    // for (i = 0; i < 5; i++) {
+    //     arenaObj.ally.attack = arenaObj.ally.attack * i;
+    // };
 
-    $("#arena-text").text(arenaObj.enemy.name + " attacked you for " + arenaObj.enemy.counter + " damange."  + "You attacked " + arenaObj.enemy.name + " for " + arenaObj.ally.attack + " damage." );
-    
+
+    console.log("Your enemy HP is " + arenaObj.enemy.health + " and your HP is " + arenaObj.ally.health);
+
+    $("#arena-text").text(arenaObj.enemy.name +
+        " attacked you for " + arenaObj.enemy.counter +
+        " damange." + "You attacked " + arenaObj.enemy.name +
+        " for " + arenaObj.ally.attack + " damage.");
 
 });
 
@@ -190,48 +214,5 @@ $("#arena").on('click', function () {
  $("#" + ally.id).replaceWith("Name: " + ally.name + "<br>" + "Health: " + ally.health);
  run dead function lol.
 */
-
-
-
-
-
-
-
-    // $("#user-character > button").find('id', function () {
-
-    //     userFight = $(this).attr('id');
-    //     console.log(userFight);
-
-    //     characters.forEach(function (object) {
-
-    //         if (object.id === userFight) {
-    //             uHealth = $(this.health);
-    //             uAttack = $(this.attack);
-
-    //         }
-
-    //     });
-
-    // });
-
-
-    // $("#enemy-character > button").on("click", function () {
-
-    //     enemyFight = $(this).attr('id');
-    //     console.log(enemyFight);
-
-    //     characters.forEach(function (object) {
-
-    //         if (object.id === enemyFight) {
-    //             eHealth = $(this.health);
-    //             eCounter = $(this.counter);
-
-    //         }
-
-    //     });
-
-    // });
-
-
 
 
