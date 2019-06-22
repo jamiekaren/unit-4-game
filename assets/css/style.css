@@ -19,6 +19,16 @@ body {
     font-size: 20px;
   }
 
+  #arena-text {
+    color: maroon;
+    background-color: white .5;
+  };
+
+  #fight-outcome {
+    font-size: 30px;
+
+  }
+
    #choose {
        border: none;
        border-color: rgba(169,169,169);
