@@ -44,7 +44,9 @@ let characters = [
         health: 1500,
         attack: 5,
         counter: 10,
-        stats: $("#solo").prepend(this.name + "<br>" + "Health: " + this.health),
+        stats: function () {
+            $("#solo").prepend(this.name + "<br>" + "Health: " + this.health)
+        },
     },
 
     {
@@ -54,7 +56,9 @@ let characters = [
         playSound: function () {
             this.r2Sound.play();
         },
-        stats: $("#droid").prepend(this.name + "<br>" + "Health: " + this.health),
+        stats: function () {
+            $("#droid").prepend(this.name + "<br>" + "Health: " + this.health)
+    },
         health: 75,
         attack: 5,
         counter: 10,
@@ -69,7 +73,9 @@ let characters = [
             this.lukeSound.play();
 
         },
-        stats: $("#luke").prepend(this.name + "<br>" + "Health: " + this.health),
+        stats: function () {
+            $("#luke").prepend(this.name + "<br>" + "Health: " + this.health)
+    },
         health: 120,
         attack: 5,
         counter: 15,
@@ -82,7 +88,9 @@ let characters = [
         playSound: function () {
             this.trooperSound.play();
         },
-        stats: $("#trooper").prepend(this.name + "<br>" + "Health: " + this.health),
+        stats: function () { 
+            $("#trooper").prepend(this.name + "<br>" + "Health: " + this.health)
+        },
         health: 50,
         attack: 5,
         counter: 5,
@@ -95,15 +103,19 @@ let characters = [
         playSound: function () {
             this.greedoSound.play();
         },
-        // stats: function () 
-        // { $('#greedo').prepend(this.name + "<br>" + "Health: " + this.health)},
+        stats: function () { 
+            $('#greedo').prepend(this.name + "<br>" + "Health: " + this.health)},
         health: 200,
         attack: 5,
         counter: 25,
     },
 ];
 
-// characters.stats ();
+characters[0].stats();
+characters[1].stats();
+characters[2].stats();
+characters[3].stats();
+characters[4].stats();
 
 
 //character selection, sound, and move process with button click
@@ -147,9 +159,6 @@ $("#characters-area :button").click(function () {
 
 });
 
-
-
-
 /*Death check -- if health is 0 or less, empty div area 
 Also add cute little sayings at the end.
 But sadly cannot both write text when enemy dies and when ally dies...even when
@@ -162,13 +171,14 @@ Also, only dies after 0 even if button click initiates it, if it goes to 0 shou'
 function dead() {
     if (arenaObj.ally.health <= 0) {
         $("#user-character").empty();
-        alert("Game Over!");
+        alert("Game Over! Hit CTRL + R to refresh the page and try again.");
         $("#fight-outcome").text("<br> You are dead. The Galaxy will fall into chaos! <p>");
 
 
     } else if (arenaObj.enemy.health <= 0) {
         $("#enemy-character").empty();
         $("#fight-outcome").text(arenaObj.enemy.name + " is dead. The Force is strong with you!");
+        alert("Your journey is not over. Please select another character to fight.");
     }
 };
 
@@ -180,15 +190,13 @@ User clicks on button,
 
 $("#arena").on('click', function () {
 
-    dead();
-    // $("#fight-outcome").empty();
-
-
     arenaObj.enemy.health -= arenaObj.ally.attack;
+    arenaObj.enemy.stats();
 
     dead();
 
     arenaObj.ally.health -= arenaObj.enemy.counter;
+    arenaObj.ally.stats();
 
     dead();
 
