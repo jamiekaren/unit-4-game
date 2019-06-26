@@ -217,7 +217,7 @@ $("#arena").on('click', function () {
 
     console.log("Your enemy HP is " + arenaObj.enemy.health + " and your HP is " + arenaObj.ally.health);
 
-    $("#arena-text")append.("<div>").html(arenaObj.enemy.name +
+    $("#arena-text").text(arenaObj.enemy.name +
         " attacked you for " + arenaObj.enemy.counter +
         " damange." + "You attacked " + arenaObj.enemy.name +
         " for " + arenaObj.ally.attack + " damage.");
