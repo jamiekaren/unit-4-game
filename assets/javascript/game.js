@@ -45,7 +45,7 @@ let characters = [
         attack: 5,
         counter: 10,
         stats: function () {
-            $("#solo").prepend(this.name + "<br>" + "Health: " + this.health)
+            $("#solo").append(this.name + "<br>" + "Health: " + this.health)
         },
     },
 
@@ -57,8 +57,8 @@ let characters = [
             this.r2Sound.play();
         },
         stats: function () {
-            $("#droid").prepend(this.name + "<br>" + "Health: " + this.health)
-    },
+            $("#droid").append(this.name + "<br>" + "Health: " + this.health)
+        },
         health: 75,
         attack: 5,
         counter: 10,
@@ -74,8 +74,8 @@ let characters = [
 
         },
         stats: function () {
-            $("#luke").prepend(this.name + "<br>" + "Health: " + this.health)
-    },
+            $("#luke").append(this.name + "<br>" + "Health: " + this.health)
+        },
         health: 120,
         attack: 5,
         counter: 15,
@@ -88,8 +88,8 @@ let characters = [
         playSound: function () {
             this.trooperSound.play();
         },
-        stats: function () { 
-            $("#trooper").prepend(this.name + "<br>" + "Health: " + this.health)
+        stats: function () {
+            $("#trooper").append(this.name + "<br>" + "Health: " + this.health)
         },
         health: 50,
         attack: 5,
@@ -103,19 +103,25 @@ let characters = [
         playSound: function () {
             this.greedoSound.play();
         },
-        stats: function () { 
-            $('#greedo').prepend(this.name + "<br>" + "Health: " + this.health)},
+        stats: function () {
+            $('#greedo').append(this.name + "<br>" + "Health: " + this.health)
+        },
         health: 200,
         attack: 5,
         counter: 25,
     },
 ];
 
-characters[0].stats();
-characters[1].stats();
-characters[2].stats();
-characters[3].stats();
-characters[4].stats();
+characters.forEach(function (object){
+object.stats();
+// characters[0].stats();
+// characters[1].stats();
+// characters[2].stats();
+// characters[3].stats();
+// characters[4].stats();
+});
+
+
 
 
 //character selection, sound, and move process with button click
@@ -130,6 +136,7 @@ $("#characters-area :button").click(function () {
     // Iterate over the array and compare this button's id
     // to the array-object's id
     characters.forEach(function (object) {
+        
 
         if (object.id === id) {
             if ($("#user-character > button").length === 0) {
@@ -152,7 +159,7 @@ $("#characters-area :button").click(function () {
             // clicks on one object at a time, we can
             // play the sound of that object
             object.playSound();
-
+            // object.stats();
 
         }
     });
@@ -190,14 +197,23 @@ User clicks on button,
 
 $("#arena").on('click', function () {
 
+    //minus ally attack and add that back into health
+    let newDiv = $("<div>");
+    
     arenaObj.enemy.health -= arenaObj.ally.attack;
-    arenaObj.enemy.stats();
+    //add new object stats back to character, but this doesn't work super well lol
+    $(this.stats).replaceWith(arenaObj.enemy.stats.health());
 
+    //check to see if character health is 0 or less
     dead();
 
+    //minus enemy attack and add that back into health
     arenaObj.ally.health -= arenaObj.enemy.counter;
-    arenaObj.ally.stats();
+    //At least, that's what I thought it was doing but now I can't even remember ROFLLLLLLL >.<
+    $(this.stats).replaceWith(arenaObj.ally.stats());
+    // arenaObj.ally.stats();
 
+    //check to see if character health is 0 or less
     dead();
 
 
