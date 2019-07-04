@@ -1,18 +1,5 @@
 console.log("Working...");
 
-/* Initial ideas...
-somehow grab user and enemy properties based off selections
-Maybe compare character div to object?
-Then compare enemy div to object?
-enemy health - user char attack number
-user char health - enemy counter number
-prepend this to above attack div
-push health result to enemy char
-push health result to user char
-
-create seperate function to check if health is 0 or less??
-fightBite.play();
-*/
 
 // variables for audio on page
 
@@ -45,7 +32,8 @@ let characters = [
         attack: 5,
         counter: 10,
         stats: function () {
-            $("#solo").prepend(this.name + "<br>" + "Health: " + this.health)
+            $("#solo-health").empty();
+            $("#solo-health").prepend(this.name + "<br>" + "Health: " + this.health)
         },
     },
 
@@ -57,8 +45,9 @@ let characters = [
             this.r2Sound.play();
         },
         stats: function () {
-            $("#droid").prepend(this.name + "<br>" + "Health: " + this.health)
-    },
+            $("#droid-health").empty();
+            $("#droid-health").prepend(this.name + "<br>" + "Health: " + this.health)
+        },
         health: 75,
         attack: 5,
         counter: 10,
@@ -74,8 +63,9 @@ let characters = [
 
         },
         stats: function () {
-            $("#luke").prepend(this.name + "<br>" + "Health: " + this.health)
-    },
+            $("#luke-health").empty();
+            $("#luke-health").prepend(this.name + "<br>" + "Health: " + this.health)
+        },
         health: 120,
         attack: 5,
         counter: 15,
@@ -88,8 +78,9 @@ let characters = [
         playSound: function () {
             this.trooperSound.play();
         },
-        stats: function () { 
-            $("#trooper").prepend(this.name + "<br>" + "Health: " + this.health)
+        stats: function () {
+            $("#trooper-health").empty();
+            $("#trooper-health").prepend(this.name + "<br>" + "Health: " + this.health)
         },
         health: 50,
         attack: 5,
@@ -103,8 +94,10 @@ let characters = [
         playSound: function () {
             this.greedoSound.play();
         },
-        stats: function () { 
-            $('#greedo').prepend(this.name + "<br>" + "Health: " + this.health)},
+        stats: function () {
+            $("#greedo-health").empty();
+            $('#greedo-health').prepend(this.name + "<br>" + "Health: " + this.health)
+        },
         health: 200,
         attack: 5,
         counter: 25,
@@ -159,20 +152,12 @@ $("#characters-area :button").click(function () {
 
 });
 
-/*Death check -- if health is 0 or less, empty div area 
-Also add cute little sayings at the end.
-But sadly cannot both write text when enemy dies and when ally dies...even when
-I make a seperate div area for each? Sigh...
-I like the alert, keeping that though originally just to confirm it was working.
-Also, only dies after 0 even if button click initiates it, if it goes to 0 shou'dn't it run???
 
-*/
-
-function dead() {
+function killCharacter () {
     if (arenaObj.ally.health <= 0) {
         $("#user-character").empty();
         alert("Game Over! Hit CTRL + R to refresh the page and try again.");
-        $("#fight-outcome").text("<br> You are dead. The Galaxy will fall into chaos! <p>");
+        $("#fight-outcome").text("You are dead. The Galaxy will fall into chaos!");
 
 
     } else if (arenaObj.enemy.health <= 0) {
@@ -187,53 +172,37 @@ function dead() {
 User clicks on button, 
 
 */
-
-$("#arena").on('click', function () {
+function setAttack() {
+    $("#fight-outcome").empty();
 
     arenaObj.enemy.health -= arenaObj.ally.attack;
     arenaObj.enemy.stats();
 
-    dead();
+    killCharacter();
+
+    $("#fight-outcome").empty();
 
     arenaObj.ally.health -= arenaObj.enemy.counter;
     arenaObj.ally.stats();
 
-    dead();
+    killCharacter();
 
+    console.log("Your enemy HP is " + arenaObj.enemy.health 
+    + " and your HP is " + arenaObj.ally.health);
+};
 
-    //FOR I = 0, IF I IS LESS THAN 0, ADD 1.
-
-    // if i = 0; i < 0; i**) 
-
-    // multiple and increase by 1 each time
-    // times the number by itself??
-
-
-
-    // for (i = 0; i < 5; i++) {
-    //     arenaObj.ally.attack = arenaObj.ally.attack * i;
-    // };
-
-
-    console.log("Your enemy HP is " + arenaObj.enemy.health + " and your HP is " + arenaObj.ally.health);
-
+function updateHealth() {
     $("#arena-text").text(arenaObj.enemy.name +
         " attacked you for " + arenaObj.enemy.counter +
         " damange." + "You attacked " + arenaObj.enemy.name +
         " for " + arenaObj.ally.attack + " damage.");
+};
+
+
+$("#arena").on('click', function () {
+
+    setAttack();
+    updateHealth();
+
 
 });
-
-
-
-
-/* need to do enemy health - ally
- push result enemy health
- ally health - enemy counter
- push new ally health to ally health
- Need to replace id text with new health, so prepend to using the
- $("#" + ally.id).replaceWith("Name: " + ally.name + "<br>" + "Health: " + ally.health);
- run dead function lol.
-*/
-
-
