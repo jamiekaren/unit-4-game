@@ -164,6 +164,8 @@ function killCharacter () {
         $("#enemy-character").empty();
         $("#fight-outcome").text(arenaObj.enemy.name + " is dead. The Force is strong with you!");
         alert("Your journey is not over. Please select another character to fight.");
+        
+        
     }
 };
 
